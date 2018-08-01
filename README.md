@@ -1,7 +1,7 @@
 # An-FPGA-Overlay-Architecture-for-Xilinx-FPGAs
 
 This work combines the work of two authors [1][2] by optimizing an architecture to be used as an FPGA overlay,
-that can be addressed as peripheral via AXI4 interfaces.
+that can also be addressed as peripheral via AXI4 interfaces.
 
 The Overlay is packaged as a peripheral that can be accessed by two AXI4 intefaces(a lite and a full). A script is provided
 that will generate the Xilinx IPs for your particular device (FP units and FIFOs). 
