@@ -1,7 +1,7 @@
 # An-FPGA-Overlay-Architecture-for-Xilinx-FPGAs
 
 This work combines the work of two authors [1][2] by optimizing an architecture to be used as an FPGA overlay,
-that can also be addressed as a peripheral via AXI4 interfaces.
+and can also makes the overlay as a peripheral addressable by AXI4 buses.
 
 The Overlay is packaged as a peripheral that can be accessed by two AXI4 intefaces(a lite and a full). A script is provided
 that will generate the Xilinx IPs for your particular device (FP units and FIFOs). 
@@ -21,5 +21,5 @@ Programming has to be done manually at this point meaning
 The Overlay is not limited to just floating point calculations, it was just used for that purpose during the work. It can be
 extended to include more DSP units that can take care of integer operations.
 
-For more details you can read the Thesis below, although this version is slightly improved as it includes BRAM FIFOs and an
-FP comparator. 
+For more details you can read the Thesis below, although this version is slightly improved as it includes BRAM FIFOs(that greatly
+include available buffering while reducing resource usage) and an FP comparator. 
