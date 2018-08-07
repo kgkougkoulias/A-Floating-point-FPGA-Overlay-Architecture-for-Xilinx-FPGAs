@@ -3,8 +3,8 @@
 This work combines the work of two authors [1][2] by further optimizing an architecture to be used as an FPGA overlay,
 but also converts the overlay to a peripheral addressable by AXI4 buses.
 
-The Overlay is packaged as a peripheral that can be accessed by two AXI4 intefaces(a lite and a full). A script is provided
-that will generate the Xilinx IPs for your particular device (FP units and FIFOs). 
+As mentioned earlier the Overlay is packaged as a peripheral that can be accessed by two AXI4 intefaces(a lite and a full). A
+script is provided that will generate the Xilinx IPs for your particular device (FP units and FIFOs). 
 
 After than you can package the resulting XCI files with the Verilog ones, which will give an 5x5 Overlay that can be programmed to
 execute different DFGs.
