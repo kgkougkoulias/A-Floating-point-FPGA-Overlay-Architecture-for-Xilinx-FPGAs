@@ -27,4 +27,5 @@ For more details you can read the Thesis below, although this version is slightl
 include available buffering while reducing resource usage) and an FP comparator. 
 
 [1] Venkatraman Govindaraju ; Chen-Han Ho ; Tony Nowatzki DySER et al: Unifying Functionality and Parallelism Specialization for Energy-Efficient Computing, IEEE Micro, 10 July 2012 
+
 [2] A. K. Jain and al: Adapting the DySER Architecture with DSP Blocks as an Overlay for the Xilinx Zynq, in International Symposium on Highly-Efficient Accelerators and Reconfigurable Technologies(HEART2015), Boston, MA, June 2015.
