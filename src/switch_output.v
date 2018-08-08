@@ -58,10 +58,10 @@ wire   [`PATH_WIDTH:0] data1;
 //////////////////////////////////////////
 
 // At the moment this is a 16->1 MUX 
-// It can be optimized manually to a 8->1 MUX there are 
-// only 5 "real" inputs
-// There reason is not done is that the Xilinx optimizer 
-// does this automatically
+// It can be optimized manually to a 8->1 MUX as there 
+// are only 5 "real" inputs
+// The reason this is not already been done is that the Xilinx 
+// optimizer does this automatically
 assign data1 = (conf[3:0] == 4'b0000 ? {`PATH_WIDTH{1'b0}} : // turned off
                 conf[3:0] == 4'b0001 ? d_in_NW :
                 conf[3:0] == 4'b0010 ? d_in_E  :
