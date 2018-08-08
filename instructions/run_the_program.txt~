@@ -1,0 +1,7 @@
+In the main function of the software files on the Xilinx SDK, you can choose
+in the main function which algorithm to execute. There are 4 configuration already
+available for matrix multiplication, convolution, kmeans and stencil kernels(mm and conv
+have the same kernel).
+
+Each algorithm has the reference original implementation forCPU and the modified 
+implementation that executes the kernels with the help of the overlay.

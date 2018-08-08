@@ -1,0 +1,86 @@
+
+           Configuration Register
+_____________________________________________________
+|						 |							 |
+|   Functional Unit Conf |     Switch Configuration  |
+|________________________|___________________________|
+|						 |							 |
+|		 47:32			 |		    31:0			 |
+|________________________|___________________________|
+
+Each tile contains a configuration register that programs its functionallity, for the edge tiles it
+is only 32 bits. Below you can see what every parts of the register do.
+
+
+
+
+
+		        Configuration of the Functional Unit
+_______________________________________________________________________________________
+|									  										          |
+|                      Functional Unit Conf Register                                  |
+|_____________________________________________________________________________________|
+|		   |		    |			   |		   |          |              |        |
+| [15:14]  |	  13    |    [12:5]    |   [6:5]   |   [4:3]  |	  [2:1]      |   0	  |		
+|__________|____________|______________|___________|__________|______________|________|
+|		   |						   |		   |		  |	same value   | set at |
+| Function | constant_en and constant  |   input   |   input  |	as one input |   0	  |
+|__________|___________________________|___________|__________|______________|________|
+
+
+[13:5] -> can be removed they are in order to support a constant
+       -> this way the functionallity that is at [15:14] can be extended
+
+
+[2:1]  -> must be setted to one of the input, that means same value as [6:5] or [4:3]
+
+[0]    -> always 0 
+
+
+
+
+
+
+				Configuration of the switch to control data flow
+__________________________________________________________________________________________________
+|									  															  | 
+|                   				Switch programming 											  |
+|_________________________________________________________________________________________________|
+|		     |			  | 		  |	          |           |           |           |           |
+|  [31:28]   |  [27:24]   |  [23:20]  |  [19:16]  |  [15:12]  |   [11:8]  |   [7:4]   |   [3:0]   |					
+|____________|____________|___________|___________|___________|___________|___________|___________|
+|   West	 | South-West |	  South	  |	South-East|	  East 	  |North-Earth|	North     |	North-West|
+|  Output	 |			  |	 Output	  |  Output   |	 Output	  |	 Output	  |	Output	  |	 Output   |
+|____________|____________|___________|___________|___________|___________|___________|___________|
+
+
+Below you can see which bitcode you can use to redirect the inputs. For example, if you want to redirect
+the South input to the North output direction, you need to write "0100" to the [7:4] bits of the configuration
+register.
+
+	__________________________
+    |             |			 |
+    |  Direction  |  bitcode |
+    |_____________|__________|
+    |			  |          |
+	|   Empty	  |   0000   |
+	|_____________|__________|
+	|			  |          |
+	|  North-West |   0001   |
+	|_____________|__________|
+	|             |          |
+	|   East      |   0010   |
+	|_____________|__________|
+	|			  |          |
+	|   North	  |   0011   |
+	|_____________|__________|
+	|             |          |
+	|   South     |   0100   |
+	|_____________|__________|
+	|			  |			 |
+	|   West	  |   1000 	 |
+	|_____________|__________|
+
+
+
+

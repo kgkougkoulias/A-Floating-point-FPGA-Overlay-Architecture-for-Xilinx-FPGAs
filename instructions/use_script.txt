@@ -1,0 +1,13 @@
+You can use the script to the generate the configuration for the register to program a tile.
+First you need to compile with gcc
+
+1. Run the executable and follow the instructions to select the desired data-flow on the switch
+   and the operation on the FU
+
+2. At the end you get a hex value that programs the particular tile for the desired functionality
+
+3. This way you create the configuration for every tile, then write them to the txt file and finally
+   execute the python script
+
+4. If you add more functionallity you need to slightly modify the conf script, but only for
+   the computational part as routing remains the same

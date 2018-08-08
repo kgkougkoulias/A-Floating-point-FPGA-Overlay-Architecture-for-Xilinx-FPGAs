@@ -1,0 +1,45 @@
+Peripheral
+|
+|
+|
+---->	S00_AXI_LITE
+|			Contains control logic and output FIFOs to read the results
+|			of the overlay calculation    
+|			
+|
+----->	S01_AXI_FULL
+		|	Contains the Overlay itself and auxiliary logic. Control signals
+		|	that come from the S00_AXI_LITE module and pass results to it    		
+		|
+		|
+		--->	Dyser
+				|	
+				|
+				---> Input Bridge
+				|    	Input multiplexer taking data from the bus
+				|
+				|
+				---> Output Bridge
+				|		Output multiplexers sending data to the bus
+				|
+				|
+				---> Core
+			 		|
+					|
+					----->	Edge Fabric
+			 		|		|	Left and top side edge of the core. Accepts two inputs per
+			 		|		|	switch coming from the input brdge
+			 		|		|	Each Edge Fabric tile contains one switch
+					|		|		
+					|		---> Switch
+					|
+					|
+			 		----->	Tile Fabric
+							|	Made out of tiles that contain one functional unit and 
+							|	one switch
+							|
+							--->	Tile
+									|
+									--->	Functional unit 
+									|
+									--->	Switch

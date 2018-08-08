@@ -1,0 +1,16 @@
+You can add new computational units in the Functional Unit
+
+1. Generate them from from Vivado IP Catalog
+   - Use non-blocking interface
+   - Max latency 4 cycles, otherwise problems arise with 64-bit bus. For 32-bit i found that there is no problem
+   - Modify only the comp_logic.v file, as the rest control the data flow between functional units and switches
+   - Follow the patern in the file, more instructions are included in there
+   - I highly suggest that the floating point programmable comparator is the next FP unit to be added(already done my me)
+   - You can build a INT ALU so that the overlay supports both FP and INT operations at the same time(There many operation like shifting and bitwise operation on top of the normal add, sub and mul for integer numbers)
+
+2. Use the *.v for simulation on ModelSim and *.xci for implementation in Vivado. Vivado
+   needs *.xci for its IPs when synthesizing and implementing as they are infered as "black boxes".
+   Also if you want to simulate for a particular device you need to generate the libraries for
+   that device for ModelSim from Vivado. Then you need to `include them to the verilog files.
+
+ 
