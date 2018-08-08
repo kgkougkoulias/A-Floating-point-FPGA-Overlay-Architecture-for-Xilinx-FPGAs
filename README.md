@@ -18,9 +18,9 @@ Programming has to be done manually at this point meaning
  - Program each tile by hand with the help of the C program
  - At the end you run the script, which will give the programming sequence
 
-This is fully functional design that can be reconfigured in 11us, and was test on a real FPGA. The Overlay is not limited to just
-floating point calculations, it was just used for that purpose during the work. It can be extended to include more DSP units that
-can take care of integer operations.
+This is fully functional design and reconfigurable design that can be reconfigured in 11us, and was tested on a real FPGA. The
+Overlay is not limited to just floating point calculations, it was just used for that purpose during the work. It can be extended 
+to include more DSP units that can take care of integer operations.
 
 For more details you can read the Thesis below, although this version is slightly improved as it includes BRAM FIFOs(that greatly
 include available buffering while reducing resource usage) and an FP comparator. 
