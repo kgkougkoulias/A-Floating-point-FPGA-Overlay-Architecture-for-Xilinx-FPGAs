@@ -45,7 +45,7 @@ wire     almost_full;
 assign busy = full & enq & ~deq;
 assign almost_full = (count <= 9'b111111110) ? 1 : 0;
 assign c_out = almost_full & ~full;
-assign valid = (~empty_in | enq) & deq; /
+assign valid = (~empty_in | enq) & deq;
 assign d_out = (enq & deq & empty_in ? d_in : dout_in); // bypassing
 assign empty = empty_in;
 
