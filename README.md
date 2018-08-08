@@ -21,5 +21,9 @@ Programming has to be done manually at this point meaning
 The Overlay is not limited to just floating point calculations, it was just used for that purpose during the work. It can be
 extended to include more DSP units that can take care of integer operations.
 
+This is fully functional design that can be reconfigured in 11us, and was test on a real FPGA.
+
 For more details you can read the Thesis below, although this version is slightly improved as it includes BRAM FIFOs(that greatly
 include available buffering while reducing resource usage) and an FP comparator. 
+
+
