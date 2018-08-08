@@ -9,8 +9,8 @@ script is provided that will generate the Xilinx IPs for your particular device 
 After than you can package the resulting XCI files with the Verilog ones, which will give an 5x5 Overlay that can be programmed to
 execute different DFGs.
 
-By packaging you will be enabled to infer more than one instances of the Overlay, so the 5x5 size is not a constaint for that 
-reason. Also it makes it easier to route global signals(as CLK, RST etc) that would otherwise would have been a problem with
+By packaging you will be enabled to infer more than one instances of the Overlay, so the 5x5 size is not a hard constraint for 
+that reason. Also it makes it easier to route global signals(as CLK, RST etc) that would otherwise would have been a problem with
 a bigger grid size.
 
 Programming has to be done manually at this point meaning
