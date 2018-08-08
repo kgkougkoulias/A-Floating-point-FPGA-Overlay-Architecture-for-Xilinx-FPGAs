@@ -1,7 +1,0 @@
-In the simulation files you can find the souce code of the design along with
-a module that implements the AXI protocol(the *.sv file) so you can simulate the transactions
-coming from the AXI bus. This can be programmed to sent bursts of any size and
-the module that implements the communication protocol responds accordingly.
-
-Also there is an implementation for the Lite version of the protocol to control and read the
-register of the overlay from the CPU side.
