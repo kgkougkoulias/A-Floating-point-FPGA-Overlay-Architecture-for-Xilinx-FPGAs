@@ -63,9 +63,9 @@ floating_point_0_4cyc fp_add_sub(
 // new staff for multicycle operations
 always @ (posedge clk)
     begin
-        cnt0 <= rst? 3'b000 :   					//reset
+        cnt0 <= rst? 3'b000 :   			//reset
         (d_in_c0[0] & d_in_c1[0]) ? cnt0 + 1'b1 :	//both ready
-        3'b000; 									//not ready
+        3'b000; 					//not ready
 end
 
 assign done_add = (cnt0 == 3'b101) ? 1'b1: 1'b0;
@@ -94,9 +94,9 @@ floating_point_mul0_4cyc fp_mult_sp(
 // new staff for multicycle operations
 always @ (posedge clk)
     begin
-        cnt1 <= rst? 3'b000 :   					//reset
+        cnt1 <= rst? 3'b000 :   			//reset
         (d_in_c0[0] & d_in_c1[0]) ? cnt1 + 1'b1 :	//both ready
-        3'b000; 									//not ready
+        3'b000; 					//not ready
     end
 
 assign done_mul = (cnt1 == 3'b101) ? 1'b1: 1'b0;
@@ -125,9 +125,9 @@ select_smaller_larger comp_module(
 // new staff for multicycle operations
 always @ (posedge clk)
     begin
-        cnt2 <= rst? 2'b000 :   					//reset
+        cnt2 <= rst? 2'b000 :   			//reset
         (d_in_c0[0] & d_in_c1[0]) ? cnt2 + 1'b1 :	//both ready
-        2'b00; 									    //not ready
+        2'b00; 						//not ready
     end
 
 assign done_comp = (cnt2 == 2'b11) ? 1'b1: 1'b0;
@@ -139,20 +139,20 @@ assign done_comp = (cnt2 == 2'b11) ? 1'b1: 1'b0;
 assign done = (conf[3:0] == 4'b1000) ? done_mul  :
 			  (conf[3:0] == 4'b1100) ? done_comp :
 			  (conf[3:0] == 4'b1110) ? done_comp :
-								       done_add;
+						   done_add;
 
 // select the output according to the function specified
 assign d_out[`PATH_WIDTH-1:1] = (conf[3:0] == 4'b1000) ? d_out_mul  :
-								(conf[3:0] == 4'b1100) ? d_out_comp :
-								(conf[3:0] == 4'b1110) ? d_out_comp :
-													     d_out_add;
+				(conf[3:0] == 4'b1100) ? d_out_comp :
+				(conf[3:0] == 4'b1110) ? d_out_comp :
+							 d_out_add;
 
 // opcode of the available operations
 assign op = (conf[3:0] == 4'b0000 ? 8'h00 : // d_in0 + d_in1
              conf[3:0] == 4'b0100 ? 8'h01 : // d_in0 - d_in1
              conf[3:0] == 4'b1000 ? 8'h00 : // d_in0 * d_in1
-			 conf[3:0] == 4'b1100 ? 8'h01 : // min(d_in0, d_in1)
-			 conf[3:0] == 4'b1110 ? 8'h02 : // max(d_in0, d_in1)
+	     conf[3:0] == 4'b1100 ? 8'h01 : // min(d_in0, d_in1)
+	     conf[3:0] == 4'b1110 ? 8'h02 : // max(d_in0, d_in1)
            /*conf[3:0] == 4'b1100*/ 8'h00   // default -- room for move operations 
                 );
 
