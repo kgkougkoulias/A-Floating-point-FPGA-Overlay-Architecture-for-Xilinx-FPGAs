@@ -41,11 +41,11 @@ for i in range(0,25):
 # programming sequence as a list with respect to order that 
 # each tile is programmed in reverse
 conf_seq = [switches[10], tiles[20], tiles[21], tiles[22], tiles[23], tiles[24],
-			tiles[19], tiles[18], tiles[17], tiles[16], tiles[15], switches[9],
-			switches[8], tiles[10], tiles[11], tiles[12], tiles[13], tiles[14],
-			tiles[9], tiles[8], tiles[7], tiles[6], tiles[5], switches[7],
-			switches[6], tiles[0], tiles[1], tiles[2], tiles[3], tiles[4],
-			switches[5], switches[4], switches[3], switches[2], switches[1], switches[0]]
+		tiles[19], tiles[18], tiles[17], tiles[16], tiles[15], switches[9],
+		switches[8], tiles[10], tiles[11], tiles[12], tiles[13], tiles[14],
+		tiles[9], tiles[8], tiles[7], tiles[6], tiles[5], switches[7],
+		switches[6], tiles[0], tiles[1], tiles[2], tiles[3], tiles[4],
+		switches[5], switches[4], switches[3], switches[2], switches[1], switches[0]]
 
 
 # convert list to string
