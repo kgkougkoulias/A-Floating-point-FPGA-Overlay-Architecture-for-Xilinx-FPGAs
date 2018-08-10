@@ -11,30 +11,30 @@
 
 `timescale 1 ns / 1 ps
 
-	module ovrl_5x5_axi4_lite #
-		(
-		// Users to add parameters here
+module ovrl_5x5_axi4_lite #
+	(
+	// Users to add parameters here
 
-		// User parameters ends
-		// Do not modify the parameters beyond this line
+	// User parameters ends
+	// Do not modify the parameters beyond this line
 
-		// Width of S_AXI data bus
-		parameter integer C_S_AXI_DATA_WIDTH	= 32,
-		// Width of S_AXI address bus
-		parameter integer C_S_AXI_ADDR_WIDTH	= 32
+	// Width of S_AXI data bus
+	parameter integer C_S_AXI_DATA_WIDTH	= 32,
+	// Width of S_AXI address bus
+	parameter integer C_S_AXI_ADDR_WIDTH	= 32
 	)
 	(
-		// Users to add ports here
+	// Users to add ports here
     	output wire [4:0] out_port0,
-		output wire [4:0] out_port1,
+	output wire [4:0] out_port1,
     	output wire conf_en,
     	output wire wr_en_ovrl,
     	output wire out_en_ovrl0,
-		output wire out_en_ovrl1,
+	output wire out_en_ovrl1,
     	input wire done0,
-		input wire done1,
+	input wire done1,
     	input wire [31:0] ovrl_res0,
-		input wire [31:0] ovrl_res1,
+	input wire [31:0] ovrl_res1,
 		
 		/* DEBUD REGISTERS    */
         input wire [31:0] dbg0,
@@ -50,69 +50,69 @@
         /* END OF DEBUG REGISTERS*/
 		
 		
-		// User ports ends
-		// Do not modify the ports beyond this line
+	// User ports ends
+	// Do not modify the ports beyond this line
 
-		// Global Clock Signal
-		input wire  S_AXI_ACLK,
-		// Global Reset Signal. This Signal is Active LOW
-		input wire  S_AXI_ARESETN,
-		// Write address (issued by master, acceped by Slave)
-		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_AWADDR,
-		// Write channel Protection type. This signal indicates the
-		// privilege and security level of the transaction, and whether
-		// the transaction is a data access or an instruction access.
-		input wire [2 : 0] S_AXI_AWPROT,
-		// Write address valid. This signal indicates that the master signaling
-		// valid write address and control information.
-		input wire  S_AXI_AWVALID,
-		// Write address ready. This signal indicates that the slave is ready
-		// to accept an address and associated control signals.
-		output wire  S_AXI_AWREADY,
-		// Write data (issued by master, acceped by Slave) 
-		input wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_WDATA,
-		// Write strobes. This signal indicates which byte lanes hold
-		// valid data. There is one write strobe bit for each eight
-		// bits of the write data bus.    
-		input wire [(C_S_AXI_DATA_WIDTH/8)-1 : 0] S_AXI_WSTRB,
-		// Write valid. This signal indicates that valid write
-		// data and strobes are available.
-		input wire  S_AXI_WVALID,
-		// Write ready. This signal indicates that the slave
-		// can accept the write data.
-		output wire  S_AXI_WREADY,
-		// Write response. This signal indicates the status
-		// of the write transaction.
-		output wire [1 : 0] S_AXI_BRESP,
-		// Write response valid. This signal indicates that the channel
-		// is signaling a valid write response.
-		output wire  S_AXI_BVALID,
-		// Response ready. This signal indicates that the master
-		// can accept a write response.
-		input wire  S_AXI_BREADY,
-		// Read address (issued by master, acceped by Slave)
-		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_ARADDR,
-		// Protection type. This signal indicates the privilege
-		// and security level of the transaction, and whether the
-		// transaction is a data access or an instruction access.
-		input wire [2 : 0] S_AXI_ARPROT,
-		// Read address valid. This signal indicates that the channel
-		// is signaling valid read address and control information.
-		input wire  S_AXI_ARVALID,
-		// Read address ready. This signal indicates that the slave is
-		// ready to accept an address and associated control signals.
-		output wire  S_AXI_ARREADY,
-		// Read data (issued by slave)
-		output wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_RDATA,
-		// Read response. This signal indicates the status of the
-		// read transfer.
-		output wire [1 : 0] S_AXI_RRESP,
-		// Read valid. This signal indicates that the channel is
-		// signaling the required read data.
-		output wire  S_AXI_RVALID,
-		// Read ready. This signal indicates that the master can
-		// accept the read data and response information.
-		input wire  S_AXI_RREADY
+	// Global Clock Signal
+	input wire  S_AXI_ACLK,
+	// Global Reset Signal. This Signal is Active LOW
+	input wire  S_AXI_ARESETN,
+	// Write address (issued by master, acceped by Slave)
+	input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_AWADDR,
+	// Write channel Protection type. This signal indicates the
+	// privilege and security level of the transaction, and whether
+	// the transaction is a data access or an instruction access.
+	input wire [2 : 0] S_AXI_AWPROT,
+	// Write address valid. This signal indicates that the master signaling
+	// valid write address and control information.
+	input wire  S_AXI_AWVALID,
+	// Write address ready. This signal indicates that the slave is ready
+	// to accept an address and associated control signals.
+	output wire  S_AXI_AWREADY,
+	// Write data (issued by master, acceped by Slave) 
+	input wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_WDATA,
+	// Write strobes. This signal indicates which byte lanes hold
+	// valid data. There is one write strobe bit for each eight
+	// bits of the write data bus.    
+	input wire [(C_S_AXI_DATA_WIDTH/8)-1 : 0] S_AXI_WSTRB,
+	// Write valid. This signal indicates that valid write
+	// data and strobes are available.
+	input wire  S_AXI_WVALID,
+	// Write ready. This signal indicates that the slave
+	// can accept the write data.
+	output wire  S_AXI_WREADY,
+	// Write response. This signal indicates the status
+	// of the write transaction.
+	output wire [1 : 0] S_AXI_BRESP,
+	// Write response valid. This signal indicates that the channel
+	// is signaling a valid write response.
+	output wire  S_AXI_BVALID,
+	// Response ready. This signal indicates that the master
+	// can accept a write response.
+	input wire  S_AXI_BREADY,
+	// Read address (issued by master, acceped by Slave)
+	input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_ARADDR,
+	// Protection type. This signal indicates the privilege
+	// and security level of the transaction, and whether the
+	// transaction is a data access or an instruction access.
+	input wire [2 : 0] S_AXI_ARPROT,
+	// Read address valid. This signal indicates that the channel
+	// is signaling valid read address and control information.
+	input wire  S_AXI_ARVALID,
+	// Read address ready. This signal indicates that the slave is
+	// ready to accept an address and associated control signals.
+	output wire  S_AXI_ARREADY,
+	// Read data (issued by slave)
+	output wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_RDATA,
+	// Read response. This signal indicates the status of the
+	// read transfer.
+	output wire [1 : 0] S_AXI_RRESP,
+	// Read valid. This signal indicates that the channel is
+	// signaling the required read data.
+	output wire  S_AXI_RVALID,
+	// Read ready. This signal indicates that the master can
+	// accept the read data and response information.
+	input wire  S_AXI_RREADY
 	);
 
 	// AXI4LITE signals
@@ -145,28 +145,28 @@
 	reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
 	integer	 byte_index;
     
-    // my stuff
-    reg [1:0] state;
-    reg [1:0] counter_state;
-    reg [31:0] debug;
-    reg wr_en;
-    reg conf_wr_en;
-    reg out_port_en0;
-    reg out_port_en1;
-    reg [31:0] latency_counter;
-    reg [31:0] throughtput_counter;
-    //reg [31:0] dyser_out;
-    /* my wires */
-    wire [31:0] d_out0;
-    //wire done0;
-    //wire done1;
-    wire empty;
-    wire d_out0_en;
-    wire mem_wren;
-    wire mem_rden;
-    wire [31:0] fifo_out0;
-    wire [31:0] fifo_out1;
-    // end my stuff
+   
+	reg [1:0] state;
+	reg [1:0] counter_state;
+	reg [31:0] debug;
+	reg wr_en;
+	reg conf_wr_en;
+	reg out_port_en0;
+	reg out_port_en1;
+	reg [31:0] latency_counter;
+	reg [31:0] throughtput_counter;
+	//reg [31:0] dyser_out;
+
+	wire [31:0] d_out0;
+	//wire done0;
+	//wire done1;
+	wire empty;
+	wire d_out0_en;
+	wire mem_wren;
+	wire mem_rden;
+	wire [31:0] fifo_out0;
+	wire [31:0] fifo_out1;
+   
 
 	// I/O Connections assignments
 
@@ -394,20 +394,20 @@
 	begin
 	      // Address decoding for reading registers
 	      case (axi_araddr[7:0])
-	        8'h50   : reg_data_out <= ctrl_reg;
-	        8'h54   : reg_data_out <= status_reg;
-	        8'h5c   : reg_data_out <= fifo_out0;
-		    8'h60   : reg_data_out <= fifo_out1;
-		    8'h64   : reg_data_out <= latency_counter;
-		    8'h68   : reg_data_out <= dbg0;
-		    8'h6c   : reg_data_out <= dbg1;
-		    8'h70   : reg_data_out <= data_dbg00;
-		    8'h74   : reg_data_out <= data_dbg01;
-		    8'h78   : reg_data_out <= data_dbg02;
-            8'h84   : reg_data_out <= data_dbg10;
-            8'h88   : reg_data_out <= data_dbg11;
-            8'h8c   : reg_data_out <= data_dbg12;
-            8'h98   : reg_data_out <= cycles;
+		8'h50   : reg_data_out <= ctrl_reg;
+		8'h54   : reg_data_out <= status_reg;
+		8'h5c   : reg_data_out <= fifo_out0;
+		8'h60   : reg_data_out <= fifo_out1;
+		8'h64   : reg_data_out <= latency_counter;
+		8'h68   : reg_data_out <= dbg0;
+		8'h6c   : reg_data_out <= dbg1;
+		8'h70   : reg_data_out <= data_dbg00;
+		8'h74   : reg_data_out <= data_dbg01;
+		8'h78   : reg_data_out <= data_dbg02;
+		8'h84   : reg_data_out <= data_dbg10;
+		8'h88   : reg_data_out <= data_dbg11;
+		8'h8c   : reg_data_out <= data_dbg12;
+		8'h98   : reg_data_out <= cycles;
 	        default : reg_data_out <= 0;
 	      endcase
 	end
@@ -474,13 +474,13 @@
 	always@(posedge S_AXI_ACLK)
     	begin
         if(S_AXI_ARESETN == 1'b0) begin
-            state <= `IDLE;
-            wr_en <= 1'b0;
-            conf_wr_en <= 1'b0;
-            state <= 2'b00;
-            out_port_en0 <= 1'b0;
-	    	out_port_en1 <= 1'b0;
-            status_reg <= 32'h0000_0000;   
+		state <= `IDLE;
+		wr_en <= 1'b0;
+		conf_wr_en <= 1'b0;
+		state <= 2'b00;
+		out_port_en0 <= 1'b0;
+		out_port_en1 <= 1'b0;
+		status_reg <= 32'h0000_0000;   
         end else begin
             
             case(state)
@@ -489,9 +489,8 @@
                     if(ctrl_reg[1:0] == 2'b01) begin
                         state <= `CONF;
                         conf_wr_en <= 1'b1;
-						out_port_en0 <= 1'b0;
-						out_port_en1 <= 1'b0;
-                        //out_port_en0 <= 1'b1;
+			out_port_en0 <= 1'b0;
+			out_port_en1 <= 1'b0;
                     end
                 end
                         
@@ -505,8 +504,8 @@
                         state <= `CALC;
                         conf_wr_en <= 1'b0;
                         wr_en <= 1'b1;
-						out_port_en0 <= ctrl_reg[2];
-						out_port_en1 <= ctrl_reg[3];
+			out_port_en0 <= ctrl_reg[2];
+			out_port_en1 <= ctrl_reg[3];
                     end
                 end
                         
@@ -519,7 +518,7 @@
                     	end else begin
                         	status_reg <= 32'h0000_0000;
                     	end
-		   		    end else if(empty0 == 1'b0) begin
+		    end else if(empty0 == 1'b0) begin
                         status_reg <= 32'h0000_0001;
                     end else begin
                         status_reg <= 32'h0000_0000;
@@ -537,6 +536,6 @@
         end
     end
 
-	// User logic ends
+// User logic ends
 
-	endmodule
+endmodule
