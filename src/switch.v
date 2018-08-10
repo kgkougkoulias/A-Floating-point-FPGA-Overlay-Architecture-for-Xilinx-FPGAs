@@ -127,14 +127,14 @@ begin
   	if (EDGE == 0) begin // CORE SWITCH
   		conf[47-`CONF_BITS:0]  <= conf[47:`CONF_BITS];
     	conf[47:47-`CONF_WIDTH] <= (CONFIG_PATH_IN == `NORTH ? d_in_N[`CONF_WIDTH:0] : 
-      	                          CONFIG_PATH_IN == `EAST  ? d_in_E[`CONF_WIDTH:0] : 
+      	                            CONFIG_PATH_IN == `EAST  ? d_in_E[`CONF_WIDTH:0] : 
         	                        CONFIG_PATH_IN == `SOUTH ? d_in_S[`CONF_WIDTH:0] : 
-          	                    /*CONFIG_PATH_IN == `WEST*/  d_in_W[`CONF_WIDTH:0]);
+          	                      /*CONFIG_PATH_IN == `WEST*/  d_in_W[`CONF_WIDTH:0]);
     end
     else begin // EDGE SWITCH
     	conf[31:0] <= (CONFIG_PATH_IN == `NORTH ? d_in_N[`CONF_WIDTH:0] : 
       	               CONFIG_PATH_IN == `EAST  ? d_in_E[`CONF_WIDTH:0] : 
-        	       CONFIG_PATH_IN == `SOUTH ? d_in_S[`CONF_WIDTH:0] : 
+        	           CONFIG_PATH_IN == `SOUTH ? d_in_S[`CONF_WIDTH:0] : 
                      /*CONFIG_PATH_IN == `WEST*/  d_in_W[`CONF_WIDTH:0]);
     end
   end
