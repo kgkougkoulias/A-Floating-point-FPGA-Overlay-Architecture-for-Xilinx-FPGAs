@@ -58,7 +58,7 @@ floating_point_0_4cyc fp_add_sub(
                     .m_axis_result_tvalid(),
                     //.m_axis_result_tdata(d_out[`PATH_WIDTH-1:1])
                     .m_axis_result_tdata(d_out_add)
-                    );
+);
 
 // new staff for multicycle operations
 always @ (posedge clk)
@@ -89,7 +89,7 @@ floating_point_mul0_4cyc fp_mult_sp(
                     .m_axis_result_tvalid(),
                     //.m_axis_result_tdata(d_out[`PATH_WIDTH-1:1])
                     .m_axis_result_tdata(d_out_mul)
-                    );	
+);	
 
 // new staff for multicycle operations
 always @ (posedge clk)
@@ -154,7 +154,7 @@ assign op = (conf[3:0] == 4'b0000 ? 8'h00 : // d_in0 + d_in1
 	     conf[3:0] == 4'b1100 ? 8'h01 : // min(d_in0, d_in1)
 	     conf[3:0] == 4'b1110 ? 8'h02 : // max(d_in0, d_in1)
            /*conf[3:0] == 4'b1100*/ 8'h00   // default -- room for move operations 
-                );
+);
 
 assign d_out[0] = d_in_c0[1] & d_in_c1[1];
 
