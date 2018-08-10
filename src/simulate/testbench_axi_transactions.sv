@@ -318,9 +318,9 @@ module test_burst_dyser();
 
 	// data #1
 	
-	write_adress(32'h43c3_0050, 32'h0006_0006);  // write control register to get into CALC mode and 
-												 // program output bridge to expect in-order to 
-												 // direct data into output FIFOs
+	write_adress(32'h43c3_0050, 32'h0006_0006);  	 // write control register to get into CALC mode and 
+							 // program output bridge to expect in-order to 
+							 // direct data into output FIFOs
 
 	// write multiple bursts in-order to verify if the Overlay responds accordingly
 	for(i=0; i<16; i = i + 1) begin
