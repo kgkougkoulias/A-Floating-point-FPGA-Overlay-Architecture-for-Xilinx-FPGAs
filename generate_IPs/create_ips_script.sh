@@ -3,21 +3,21 @@ log(){ local x=$1 n=2 l=-1;if [ "$2" != "" ];then n=$x;x=$2;fi;while((x));do let
 
 if [[ $# -eq 0 ]] ; then
 	echo ""
-    echo 'Wrong number of arguments'
+	echo 'Wrong number of arguments'
 	echo 'Usage: ./create_ips PART_CODE (code of the device that is going to be used)'
 	echo 'For example for the PYNQ board the part code is xc7z020clg400-1'
 	echo ""
-    exit 0
+	exit 0
 fi
 
 if [ ! -d "$dir"/ip_source ]; then
-  mkdir ip_source
-  mkdir ../src/xci
-  mkdir ../src/sim_ip_files
+	mkdir ip_source
+	mkdir ../src/xci
+	mkdir ../src/sim_ip_files
 fi
 
 #export part='xc7z020clg400-1'
-export part='xc7z030sbv485-3'
+#export part='xc7z030sbv485-3'
 
 ##############################################################
 # create FIFOs where results of overlay calculations are saved
