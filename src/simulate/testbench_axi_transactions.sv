@@ -5,7 +5,7 @@
 
 module test_burst_dyser();
 		
-		integer i;
+	integer i;
         // lite inteface
         // data inputs
         reg [31:0] s00_axi_wdata;
@@ -34,54 +34,54 @@ module test_burst_dyser();
         
         
         // full interface
-		reg S01_AXI_ACLK;
-		reg S01_AXI_ARESETN;
-		wire S01_AXI_ARVALID;
-		wire S01_AXI_AWVALID;
-		wire S01_AXI_BREADY;
-   		wire S01_AXI_RREADY;
-   		wire S01_AXI_WLAST;
-   		wire S01_AXI_WVALID;
-   		wire S01_AXI_ARID;
-   	 	wire S01_AXI_AWID;
-		wire [1:0] S01_AXI_ARBURST;
-   		wire S01_AXI_ARLOCK;
-   		wire [2:0] S01_AXI_ARSIZE;
-   		wire [1:0] S01_AXI_AWBURST;
-   		wire S01_AXI_AWLOCK;
-   		wire [2:0] S01_AXI_AWSIZE;
-   		wire [2:0] S01_AXI_ARPROT;
-   		wire [2:0] S01_AXI_AWPROT;
-   		wire [31:0] S01_AXI_ARADDR;
-   		wire [31:0] S01_AXI_AWADDR;
-   		wire [31:0] S01_AXI_WDATA;
-   		wire [3:0] S01_AXI_ARCACHE;
-   		wire [7:0] S01_AXI_ARLEN;
-   		wire [3:0] S01_AXI_ARQOS;
-   		wire [3:0] S01_AXI_AWCACHE;
-   		wire [7:0] S01_AXI_AWLEN;
-   		wire [3:0] S01_AXI_AWQOS;
-   		wire [3:0] S01_AXI_WSTRB;
-   		wire S01_AXI_ARREADY;
-   		wire S01_AXI_AWREADY;
-   		wire S01_AXI_BVALID;
-   		wire S01_AXI_RLAST;
-   		wire S01_AXI_RVALID;
-   		wire S01_AXI_WREADY;
-   		wire S01_AXI_BID;
-   		wire S01_AXI_RID;
-   		wire [1:0] S01_AXI_BRESP;
-   		wire [1:0] S01_AXI_RRESP;
-   		wire [31:0] S01_AXI_RDATA;
-		wire S01_AXI_BUSER;
-		reg [3:0] S01_AXI_AWREGION;
-		reg S01_AXI_AWUSER;
-		reg S01_AXI_WUSER;
-		reg [3:0] S01_AXI_ARREGION;
-		reg S01_AXI_ARUSER;
-		wire S01_AXI_RUSER;
-		reg [1:0] bs_response;
-		reg [31:0] dout;
+	reg S01_AXI_ACLK;
+	reg S01_AXI_ARESETN;
+	wire S01_AXI_ARVALID;
+	wire S01_AXI_AWVALID;
+	wire S01_AXI_BREADY;
+	wire S01_AXI_RREADY;
+	wire S01_AXI_WLAST;
+	wire S01_AXI_WVALID;
+	wire S01_AXI_ARID;
+	wire S01_AXI_AWID;
+	wire [1:0] S01_AXI_ARBURST;
+	wire S01_AXI_ARLOCK;
+	wire [2:0] S01_AXI_ARSIZE;
+	wire [1:0] S01_AXI_AWBURST;
+	wire S01_AXI_AWLOCK;
+	wire [2:0] S01_AXI_AWSIZE;
+	wire [2:0] S01_AXI_ARPROT;
+	wire [2:0] S01_AXI_AWPROT;
+	wire [31:0] S01_AXI_ARADDR;
+	wire [31:0] S01_AXI_AWADDR;
+	wire [31:0] S01_AXI_WDATA;
+	wire [3:0] S01_AXI_ARCACHE;
+	wire [7:0] S01_AXI_ARLEN;
+	wire [3:0] S01_AXI_ARQOS;
+	wire [3:0] S01_AXI_AWCACHE;
+	wire [7:0] S01_AXI_AWLEN;
+	wire [3:0] S01_AXI_AWQOS;
+	wire [3:0] S01_AXI_WSTRB;
+	wire S01_AXI_ARREADY;
+	wire S01_AXI_AWREADY;
+	wire S01_AXI_BVALID;
+	wire S01_AXI_RLAST;
+	wire S01_AXI_RVALID;
+	wire S01_AXI_WREADY;
+	wire S01_AXI_BID;
+	wire S01_AXI_RID;
+	wire [1:0] S01_AXI_BRESP;
+	wire [1:0] S01_AXI_RRESP;
+	wire [31:0] S01_AXI_RDATA;
+	wire S01_AXI_BUSER;
+	reg [3:0] S01_AXI_AWREGION;
+	reg S01_AXI_AWUSER;
+	reg S01_AXI_WUSER;
+	reg [3:0] S01_AXI_ARREGION;
+	reg S01_AXI_ARUSER;
+	wire S01_AXI_RUSER;
+	reg [1:0] bs_response;
+	reg [31:0] dout;
 
 	axi3_master_bfm bs( 
    		.ACLK(S01_AXI_ACLK),
@@ -128,7 +128,7 @@ module test_burst_dyser();
 
 	ovrl_5x5_top_level#(32, 32, 1, 32, 32, 1, 1, 1, 1, 1) ds0_brs(
 	
-        // Ports of Axi Slave Bus Interface S00_AXI
+		// Ports of Axi Slave Bus Interface S00_AXI
 		.s00_axi_aclk(S01_AXI_ACLK),
 		.s00_axi_aresetn(~S01_AXI_ARESETN),
 		.s00_axi_awaddr(s00_axi_awaddr),
@@ -150,7 +150,7 @@ module test_burst_dyser();
 		.s00_axi_rresp(s00_axi_rresp),
 		.s00_axi_rvalid(s00_axi_rvalid),
 		.s00_axi_rready(s00_axi_rready),
-        // Ports of Axi Slave Bus Interface S01_AXI
+		// Ports of Axi Slave Bus Interface S01_AXI
 		.s01_axi_aclk(S01_AXI_ACLK),
 		.s01_axi_aresetn(~S01_AXI_ARESETN),
 		.s01_axi_awid(S01_AXI_AWID),
@@ -184,7 +184,7 @@ module test_burst_dyser();
 		.s01_axi_arburst(S01_AXI_ARBURST),
 		.s01_axi_arlock(S01_AXI_ARLOCK),
 		.s01_axi_arcache(S01_AXI_ARCACHE),
-        .s01_axi_arprot(S01_AXI_ARPROT),
+		.s01_axi_arprot(S01_AXI_ARPROT),
 		.s01_axi_arqos(S01_AXI_ARQOS),
 		.s01_axi_arregion(S01_AXI_ARREGION),
 		.s01_axi_aruser(S01_AXI_ARUSER),
@@ -209,16 +209,16 @@ module test_burst_dyser();
 	begin
 	// lite interface
 	s00_axi_wdata = 32'h0000_0000;
-    s00_axi_araddr = 32'h0000_0000;
-    s00_axi_awaddr = 32'h0000_0000;
-    s00_axi_awprot = 3'b00;
-    s00_axi_arprot = 3'b000;
-    s00_axi_wstrb = 4'b1111;
-    s00_axi_awvalid = 1'b0;
-    s00_axi_arvalid = 1'b0;
-    s00_axi_rready = 1'b0; 
-    s00_axi_wvalid = 1'b0;
-    s00_axi_bready = 1'b0;
+	s00_axi_araddr = 32'h0000_0000;
+	s00_axi_awaddr = 32'h0000_0000;
+	s00_axi_awprot = 3'b00;
+	s00_axi_arprot = 3'b000;
+	s00_axi_wstrb = 4'b1111;
+	s00_axi_awvalid = 1'b0;
+	s00_axi_arvalid = 1'b0;
+	s00_axi_rready = 1'b0; 
+	s00_axi_wvalid = 1'b0;
+	s00_axi_bready = 1'b0;
 	// end lite interface
 	S01_AXI_ACLK = 1'b0;
 	// WAIT 100ns before starting changing the signal values 
@@ -310,10 +310,10 @@ module test_burst_dyser();
 	bs.WRITE_BURST(12'h000, 32'h7600_0200, 8'h00, 3'b010, 2'b01, 2'b00, 4'h0, 3'b000, 32'h8018_0000, 5, bs_response); // tile 32
 	bs.WRITE_BURST(12'h000, 32'h7600_0200, 8'h00, 3'b010, 2'b01, 2'b00, 4'h0, 3'b000, 32'h0000_8100, 5, bs_response); // switch 13
 	
-    ////////////////////////////////////////////////
+	////////////////////////////////////////////////
 	//
 	//  END OF STREAMING THE CONFIGURATION SEQUENCE
-    //
+	//
 	////////////////////////////////////////////////
 
 	// data #1
@@ -332,11 +332,11 @@ module test_burst_dyser();
 	#80000
 	read_adress(32'h43c3_0054);
     
-    #100000
+    	#100000
 	
 	// read results
 	for(i=0; i<16; i = i + 1) begin
-    #20000
+   	#20000
 	read_adress(32'h43c3_005c);
 	#20000
 	read_adress(32'h43c3_005c);
@@ -346,8 +346,8 @@ module test_burst_dyser();
 	read_adress(32'h43c3_005c);
 	end
 
-    #10000
-    read_adress(32'h43c3_0064);
+    	#10000
+    	read_adress(32'h43c3_0064);
 	
 	
 	// data #2
@@ -355,7 +355,7 @@ module test_burst_dyser();
         5, bs_response);
 
 	#100000
-    #20000
+    	#20000
 	read_adress(32'h43c3_005c);
 	#20000
 	read_adress(32'h43c3_005c);
@@ -363,13 +363,13 @@ module test_burst_dyser();
 	read_adress(32'h43c3_005c);
 	#20000
 	read_adress(32'h43c3_005c);
-    #10000
-    read_adress(32'h43c3_0064);
+    	#10000
+    	read_adress(32'h43c3_0064);
 
 	end
 	
-	 // task that emulates AXI4-Lite write transaction at an addr 
-     task automatic write_adress;
+	// task that emulates AXI4-Lite write transaction at an addr 
+	task automatic write_adress;
         
         input [31:0] addr;
         input [31:0] data;
@@ -390,8 +390,8 @@ module test_burst_dyser();
     
     endtask
     
-	 // task that emulates AXI4-Lite read transaction for addr
-    task automatic read_adress;
+	// task that emulates AXI4-Lite read transaction for addr
+	task automatic read_adress;
   
         input [31:0] addr;
   
