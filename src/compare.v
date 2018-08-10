@@ -28,12 +28,12 @@ wire [31:0] smaller;
 assign larger  = (answer[0])  ? operand_b : operand_a;
 assign smaller = (~answer[0]) ? operand_b : operand_a;
 assign result  = (bos == 2'b10) ? larger :
-				 (bos == 2'b01) ? smaller:
-							32'h0000_0000;
+		 (bos == 2'b01) ? smaller:
+			    32'h0000_0000;
 
 
 floating_point_lessthanorequal_2cyc comp(
-		.aclk(clk),
+	.aclk(clk),
     	.s_axis_a_tvalid(1'b1),
     	.s_axis_a_tdata(operand_a),
     	.s_axis_b_tvalid(1'b1),
