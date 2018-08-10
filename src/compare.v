@@ -40,7 +40,7 @@ floating_point_lessthanorequal_2cyc comp(
     	.s_axis_b_tdata(operand_b),
     	.m_axis_result_tvalid(),
     	.m_axis_result_tdata(answer)
-		);
+);
 
 
 endmodule
