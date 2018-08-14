@@ -26,6 +26,7 @@ For more details you can read the Thesis below, although this version is slightl
 increase available buffering while reducing resource usage) and an FP comparator.
 
 USAGE:
+
 In order to use the Overlay for your FPGA you need to package it as an IP, using Vivado. To do this go to
 1) Navigate to generate IPs folder
 2) Execute the bash script as ./create_ips_script.sh $PART_CODE (you need to export Vivado executable path first)
