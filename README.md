@@ -23,7 +23,7 @@ Overlay is not limited to just floating point calculations, it was just used for
 to include more DSP units that can take care of integer operations.
 
 For more details you can read the Thesis below, although this version is slightly improved as it includes BRAM FIFOs(that greatly
-include available buffering while reducing resource usage) and an FP comparator.
+increase available buffering while reducing resource usage) and an FP comparator.
 
 USAGE:
 In order to use the Overlay for your FPGA you need to package it as an IP, using Vivado. To do this go to
