@@ -336,14 +336,14 @@ module test_burst_dyser();
 	
 	// read results
 	for(i=0; i<16; i = i + 1) begin
-   	#20000
-	read_adress(32'h43c3_005c);
-	#20000
-	read_adress(32'h43c3_005c);
-	#20000
-	read_adress(32'h43c3_005c);
-	#20000
-	read_adress(32'h43c3_005c);
+		#20000
+		read_adress(32'h43c3_005c);
+		#20000
+		read_adress(32'h43c3_005c);
+		#20000
+		read_adress(32'h43c3_005c);
+		#20000
+		read_adress(32'h43c3_005c);
 	end
 
     	#10000
