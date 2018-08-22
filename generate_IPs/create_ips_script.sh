@@ -16,9 +16,6 @@ if [ ! -d "$dir"/ip_source ]; then
 	mkdir ../src/sim_ip_files
 fi
 
-#export part='xc7z020clg400-1'
-#export part='xc7z030sbv485-3'
-
 ##############################################################
 # create FIFOs where results of overlay calculations are saved
 ##############################################################
