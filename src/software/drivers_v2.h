@@ -8,7 +8,7 @@
 #define OVRL_PORT0  0x76000000
 #define CDMA_SOURCE 0x7E200018
 #define CDMN_DEST   0x7E200020
-
+#define CDMN_BTT    0x7E200020
 
 void kernel_5x5(float *d0);
 void kernel_5x5_less_idle(float *d0, float *res);
