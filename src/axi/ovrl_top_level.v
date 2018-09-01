@@ -25,10 +25,7 @@
     )
     (
         // Users to add ports here
-        // ELEOS IMARTON
-        // User ports ends
         // Do not modify the ports beyond this line
-
 
         // Ports of Axi Slave Bus Interface S00_AXI
         input wire  s00_axi_aclk,
@@ -102,27 +99,27 @@
         input wire  s01_axi_rready
     );
     
-		wire [4:0] out_port0;
-		wire [4:0] out_port1;
-		wire conf_en;
-		wire wr_en_ovrl;
-		wire out_en_ovrl0;
-		wire out_en_ovrl1;
-		wire done0;
-		wire done1;
-		wire [31:0] ovrl_res0;
-		wire [31:0] ovrl_res1;
+	wire [4:0] out_port0;
+	wire [4:0] out_port1;
+	wire conf_en;
+	wire wr_en_ovrl;
+	wire out_en_ovrl0;
+	wire out_en_ovrl1;
+	wire done0;
+	wire done1;
+	wire [31:0] ovrl_res0;
+	wire [31:0] ovrl_res1;
 
-		// DEBUG wires
-		wire [31:0] debug0;
-		wire [31:0] debug1;
-		wire [31:0] data_debug00;
-		wire [31:0] data_debug10;
-		wire [31:0] data_debug01;
-		wire [31:0] data_debug11;
-		wire [31:0] data_debug02;
-		wire [31:0] data_debug12;
-		wire [31:0] cpu_poll;
+	// DEBUG wires
+	wire [31:0] debug0;
+	wire [31:0] debug1;
+	wire [31:0] data_debug00;
+	wire [31:0] data_debug10;
+	wire [31:0] data_debug01;
+	wire [31:0] data_debug11;
+	wire [31:0] data_debug02;
+	wire [31:0] data_debug12;
+	wire [31:0] cpu_poll;
     
     // Instantiation of Axi Bus Interface S00_AXI
     ovrl_5x5_axi4_lite # ( 
