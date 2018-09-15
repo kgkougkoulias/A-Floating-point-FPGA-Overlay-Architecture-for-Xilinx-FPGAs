@@ -1,10 +1,11 @@
 #include <inttypes.h>
 
-
 // configuration sequences for algorithms
 
+// configuration for the kernel of Matrix Multiplication and 1D-Convoloution
+// Ensencially implements a sum of products on the overlay
+// Control Register needs to writen with this value while computing this kernel ---> 0x00060006 
 uint32_t mm[49] = {
-
   0x10000000, 0x10000084, 0x10000038, 0x10000038, 0x10000038, 0x00000038, 0x00000080,
   0x80221300, 0x12030800, 0x38008022, 0x80221200, 0x01023800, 0x38008022, 0x80220001, 0x00003180,
   0x00008100, 0x00010008, 0x00008018, 0x00320001, 0x00010000, 0x00020032, 0x005c0100, 0x10000000, 0x00008032,
@@ -14,9 +15,9 @@ uint32_t mm[49] = {
 };
 
 
-
+// kernels for the Kmeans algorithm, that is the sum of absolute squared differences between two 1D-vectors
+// Control Register needs to writen with this value while computing this kernel ---> 0x000b0006 
 uint32_t km[49] = {
-
   0x00000000, 0x00000000, 0x00000314, 0x00000031, 0x00000031, 0x00000031, 0x00000000,
   0x40221100, 0x11020300, 0x03004022, 0x40221102, 0x00120300, 0x01138022, 0x405c0804, 0x00018000,
   0x00018000, 0x08040110, 0x0000404a, 0x80220013, 0x00100000, 0x00008032, 0x80320001, 0x01000000, 0x00008032,
@@ -26,6 +27,8 @@ uint32_t km[49] = {
 
 };
 
+// stencil operation kernel on a 3D-matrix
+// Control Register needs to writen with this value while computing this kernel ---> 0x0f04000e
 uint32_t stenc[49] = {
 
   0x00000000, 0x00000001, 0x00000103, 0x00000103, 0x00000130, 0x00000310, 0x00000000,

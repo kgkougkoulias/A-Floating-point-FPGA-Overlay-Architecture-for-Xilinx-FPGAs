@@ -44,7 +44,6 @@ void stencil(){
 			Anext_dyser[i] = 0;
 	}
 
-
 	XTime_GetTime(&tStart);
 	cpu_stencil(1.4, 1.1, A0, Anext_cpu, nx, ny, nz);
 	XTime_GetTime(&tEnd);
@@ -71,7 +70,6 @@ void stencil(){
 		sum_dys += Anext_dyser[i];
 	}
 
-
 	for(i=0;i<size;i++){
 		if((fabs(Anext_dyser[i]-Anext_cpu[i])/fabs(Anext_cpu[i])) > 0.0001){
 
@@ -86,7 +84,6 @@ void stencil(){
 				}
 		}
 	}
-
 
 	printf("Percentage of errors is %f\n",(float)error_num/size);
 	printf("Max error is %f\n",max_error);

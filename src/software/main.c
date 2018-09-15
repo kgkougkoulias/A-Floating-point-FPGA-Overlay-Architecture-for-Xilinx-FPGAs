@@ -26,7 +26,7 @@ int main()
 	if(strcmp(alg, "mm") == 0 || strcmp(alg, "conv") == 0){
 		program_ovrl("mm");
 		Xil_Out32(OVRL_CONTOL, 0x00060006);  	   // Send command to accelerator to get in calc mode
-	}
+	}											   // and also program the output bridge
 	else if(strcmp(alg, "kmeans") == 0){
 		program_ovrl("kmeans");
 		Xil_Out32(OVRL_CONTOL, 0x000b0006);  		// Send command to accelerator to get in calc mode

@@ -17,6 +17,4 @@ void cpu_algorithms(char *alg){
 	}else if(strcmp(alg,"conv") == 0){
 		conv();
 	}
-
-
 }

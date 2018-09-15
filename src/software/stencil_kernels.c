@@ -43,11 +43,8 @@ void stencil_ovrl_less_idle(float c0, float c1, float *A0, float *Anext, const i
 
 	uint32_t i, j, e;
 	uint32_t k = 1;
-
-
 	D0 = (float*)malloc(sizeof(float)*80);
 	results = (float*)malloc(sizeof(float)*8);
-
 
 	for(e=0;e<4;e++){
 		D0[20*e+0] = c0;
@@ -62,7 +59,7 @@ void stencil_ovrl_less_idle(float c0, float c1, float *A0, float *Anext, const i
 		{
 			j=1;
 			for(e=0;e<4;e++){
-
+				 // allign data to the physical ports of the overlay for the CDMA to send them
 				 /*D0[20*e+0] = c0;*/						    D0[20*e+11] = A0[Index3D(ny,nx,i,j,k+(2*e)+2)];
 				 D0[20*e+1] = A0[Index3D(ny,nx,i,j,k+2*e)];		D0[20*e+12] = A0[Index3D(ny,nx,i,j,k+(2*e))];
 				 /*D0[20*e+2] = c1;	*/							D0[20*e+13] = A0[Index3D(ny,nx,i,j+1,k+(2*e)+1)];
@@ -76,12 +73,11 @@ void stencil_ovrl_less_idle(float c0, float c1, float *A0, float *Anext, const i
 
 			for(j=2;j<ny-1;j++)
 			{
-
 				Xil_DCacheFlushRange((unsigned int)D0, 320);
 				Xil_Out32(CMDA_BTT, 0x0000140); 				// number of bytes to send
 
 				for(e=0;e<4;e++){
-
+					 // allign data to the physical ports of the overlay for the CDMA to send them
 					 /*D0[20*e+0] = c0;*/							D0[20*e+11] = A0[Index3D(ny,nx,i,j,k+(2*e)+2)];
 					 D0[20*e+1] = A0[Index3D(ny,nx,i,j,k+2*e)];		D0[20*e+12] = A0[Index3D(ny,nx,i,j,k+(2*e))];
 					 /*D0[20*e+2] = c1;	*/							D0[20*e+13] = A0[Index3D(ny,nx,i,j+1,k+(2*e)+1)];
@@ -95,9 +91,9 @@ void stencil_ovrl_less_idle(float c0, float c1, float *A0, float *Anext, const i
 
 				kernel_5x5_stencil(D0);
 
-				 for(e=0;e<8;e++){
-					 Anext[Index3D (nx, ny, i, j-1, k+e)] = results[e];
-				 }
+				for(e=0;e<8;e++){
+					Anext[Index3D (nx, ny, i, j-1, k+e)] = results[e];
+				}
 			}
 		}
 }
@@ -119,7 +115,6 @@ void kernel_5x5_stencil(float *d){
 	uint32_t i;
 	uint32_t res0, res1;
 
-
 	//Xil_DCacheFlushRange((unsigned int)d, 320);
 	//Xil_Out32(CMDA_BTT, 0x0000140); 			// number of bytes to send
 
@@ -133,8 +128,6 @@ void kernel_5x5_stencil(float *d){
 		res1 = Xil_In32(0x43c30060);
 		results[2*i]   = *(float*) &res0;
 		results[2*i+1] = *(float*) &res1;
-
 	}
-
 
 }
