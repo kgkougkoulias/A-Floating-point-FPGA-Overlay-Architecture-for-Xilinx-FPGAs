@@ -38,6 +38,13 @@ In order to use the Overlay for your FPGA you need to package it as an IP, using
 4) In order to package the IP, you have to take the files located in xci, axi and in the src root and package them
 with the help of Vivado
 
+---------------------------------------------------------------------------------------------------------------------------
+
+Located in the path src/software, is the software that was used to execute the algorithms on the overlay as well as the ARM 
+CPU. In the configs.h file you can see the configuration sequences for the 4 algorithms, along with the value that needs to be
+written to the control register of the peripheral to program the state machine and the output multiplexer when executing that 
+algorithm.
+
 
 [1] Venkatraman Govindaraju ; Chen-Han Ho ; Tony Nowatzki et al: DySER Unifying Functionality and Parallelism Specialization for Energy-Efficient Computing, IEEE Micro, 10 July 2012 
 
